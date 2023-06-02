@@ -1,0 +1,87 @@
+<div class="header-background">
+	<svg width="975" height="1" viewBox="0 0 975 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<line y1="0.5" x2="975" y2="0.5" stroke="white" stroke-opacity="0.5" stroke-dasharray="1 1"/>
+	</svg>
+	<div class="header-wave">
+			<svg width="195" height="80" viewBox="0 -1 195 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<path id="double-wave" d="M0 0C48.75 0 48.75 80 97.5 80 146.25 80 146.25 0 195 0 243.75 0 243.75 80 292.5 80 341.25 80 341.25 0 390 0" stroke="white" stroke-width="0.5"/>
+				</defs>
+				<use xlink:href="#double-wave" x="0" y="0">
+					<animate attributeName="x" from="0" to="-195" dur="3s"
+							repeatCount="indefinite"/>
+				</use>
+			</svg>
+			<svg width="195" height="80" viewBox="0 -1 195 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<path id="double-wave" d="M 0 0 C 48.75 0 48.75 80 97.5 80 C 146.25 80 146.25 0 195 0 C 243.75 0 243.75 80 292.5 80 C 341.25 80 341.25 0 390 0" stroke="white" stroke-width="0.5"/>
+				</defs>
+				<use xlink:href="#double-wave" x="0" y="0">
+					<animate attributeName="x" from="0" to="-195" dur="3s"
+							repeatCount="indefinite"/>
+				</use>
+			</svg>
+			<svg width="195" height="80" viewBox="0 -1 195 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<path id="double-wave" d="M 0 0 C 48.75 0 48.75 80 97.5 80 C 146.25 80 146.25 0 195 0 C 243.75 0 243.75 80 292.5 80 C 341.25 80 341.25 0 390 0" stroke="white" stroke-width="0.5"/>
+				</defs>
+				<use xlink:href="#double-wave" x="0" y="0">
+					<animate attributeName="x" from="0" to="-195" dur="3s"
+							repeatCount="indefinite"/>
+				</use>
+			</svg>
+			<svg width="195" height="80" viewBox="0 -1 195 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<path id="double-wave" d="M 0 0 C 48.75 0 48.75 80 97.5 80 C 146.25 80 146.25 0 195 0 C 243.75 0 243.75 80 292.5 80 C 341.25 80 341.25 0 390 0" stroke="white" stroke-width="0.5"/>
+				</defs>
+				<use xlink:href="#double-wave" x="0" y="0">
+					<animate attributeName="x" from="0" to="-195" dur="3s"
+							repeatCount="indefinite"/>
+				</use>
+			</svg>
+			<svg width="195" height="80" viewBox="0 -1 195 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<path id="double-wave" d="M 0 0 C 48.75 0 48.75 80 97.5 80 C 146.25 80 146.25 0 195 0 C 243.75 0 243.75 80 292.5 80 C 341.25 80 341.25 0 390 0" stroke="white" stroke-width="0.5"/>
+				</defs>
+				<use xlink:href="#double-wave" x="0" y="0">
+					<animate attributeName="x" from="0" to="-195" dur="3s" repeatCount="indefinite"/>
+				</use>
+			</svg>
+	</div>
+</div>
+<div class="header-content">
+	<a href="/"><img src="/assets/logo.svg" alt="Logo" width="63" height="36"></a>
+	<nav>
+		<a href="/blog"><span>blog</span><i class="fa-solid fa-blog"></i></a>
+		<a href="/blog/0#music"><span>music</span><i class="fa-solid fa-music"></i></a>
+		<a href="/blog/0#about"><span>about</span><i class="fa-solid fa-address-card"></i></a>
+		<a href="/"><i class="fa-solid fa-house"></i></a>
+	</nav>
+</div>
+<script>
+	anime({
+			targets: '.header-wave > svg > defs > path',
+			d: [
+				// sine
+				{ value: 'M0 40C48.75 40 48.75 40 97.5 40 146.25 40 146.25 40 195 40 243.75 40 243.75 40 292.5 40 341.25 40 341.25 40 390 40', duration: 0, easing: 'linear' },
+				{ value: 'M0 0C48.75 0 48.75 80 97.5 80 146.25 80 146.25 0 195 0 243.75 0 243.75 80 292.5 80 341.25 80 341.25 0 390 0', duration: 500, easing: 'easeOutCubic' },
+				{ value: 'M0 40C48.75 40 48.75 40 97.5 40 146.25 40 146.25 40 195 40 243.75 40 243.75 40 292.5 40 341.25 40 341.25 40 390 40', duration: 3000, easing: 'linear' },
+			
+				// pulse 
+				{ value: 'M0 40H48.75V40H146.25V40H243.75V40H341.25V40H390', duration: 0, easing: 'linear' },
+				{ value: 'M0 0H48.75V80H146.25V0H243.75V80H341.25V0H390', duration: 500, easing: 'easeOutCubic' },
+				{ value: 'M0 40H48.75V40H146.25V40H243.75V40H341.25V40H390', duration: 3000, easing: 'linear' },
+
+				// triangle 
+				{ value: 'M0 40 97.5 40 195 40 292.5 40 390 40', duration: 0, easing: 'linear' },
+				{ value: 'M0 0 97.5 80 195 0 292.5 80 390 0', duration: 500, easing: 'easeOutCubic' },
+				{ value: 'M0 40 97.5 40 195 40 292.5 40 390 40', duration: 3000, easing: 'linear' },
+
+				// saw 
+				{ value: 'M0 40 195 40V40L390 40V40', duration: 0, easing: 'linear' },
+				{ value: 'M0 0 195 80V0L390 80V0', duration: 500, easing: 'easeOutCubic' },
+				{ value: 'M0 40 195 40V40L390 40V40', duration: 3000, easing: 'linear' }
+			],
+			loop: true
+		})
+</script>

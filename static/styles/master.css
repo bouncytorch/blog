@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+::-webkit-scrollbar {
+    width: 15px;
+    background: rgb(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    border: 5px solid transparent;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-clip: content-box;
+    transition-timing-function: ease-out;
+    transition-duration: 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: rgba(20, 20, 20, 0.7);
+}
+
+* {
+	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+	color: #FFFFFF;
+	background-color: #111111;
+	font-family: 'Barlow Condensed';
+}
+
+body {
+	min-height: 100px;
+	max-width: 975px;
+	background-color: #1E1E1E;
+    margin: auto;
+}
+
+header, footer {
+	padding: 0px 8.2010582010582%;
+}
+
+a {
+	color: #648de7
+}
+
+button {
+	font-family: 'Barlow Condensed';
+}
+
+/* Header */
+
+header {
+	overflow: hidden;
+	position: relative;
+	height: 83px;
+	background: radial-gradient(50% 198.75% at 50% 50%, rgba(0, 0, 0, 0.25) 0%, #000000 100%), url('/assets/images/header.webp');
+	background-position: center;
+}
+
+.header-content {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	height: 100%;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header-content img, .header-content button, .header-content a {
+	user-select: none;
+}
+
+nav {
+	flex-basis: 220px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+nav > a {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	color: inherit;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: 300;
+	line-height: 1.25em;
+	padding: 6px 0px;
+	background: none;
+	border: 0.5px solid #FFFFFF;
+	border-radius: 8px;
+	transition: all 0.2s cubic-bezier(0,0,0,1);
+}
+
+nav > a:hover {
+	background-color: #FFFFFF;
+	cursor: pointer;
+}
+
+nav > a:hover > * {
+	color: #000000;
+}
+
+nav > a[href=""] {
+	cursor: default;
+	pointer-events: none;
+	opacity: 0.5
+}
+
+nav > a > span {
+	margin: 0px 12px
+}
+
+nav > a > i {
+	display: none !important;
+	margin: 0px 7px
+}
+
+nav > a:last-child > i {
+	display: unset !important;
+}
+
+@media screen and (max-width: 378px) {
+	nav {
+		flex-basis: 145px;
+	}
+	nav > a > span {
+		display: none;
+	}
+	nav > a > i {
+		display: unset !important;
+	}
+}
+
+.header-background {
+	z-index: 1;
+	position: absolute;
+    left: 0;
+    top: 50%;
+}
+
+.header-background > svg {
+	position: absolute;
+	top: 50%;
+}
+
+.header-wave {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	top: 50%;
+    transform: translate(0, -50%);
+}
+
+.header-wave svg {
+	height: 83px;
+}
+
+footer {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	font-size: 0.8em;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+footer > div:first-child {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+footer > div:last-child {
+	flex-basis: content;
+	flex-shrink: 0;
+	flex-grow: 0;
+}
+
+/* FOOTER CSS 
+
+footer {
+	display: flex;
+	justify-content: space-between;
+	padding: 9px 35px;
+}
+
+.footer__left {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.footer__right {
+	flex-basis: 122px;
+	flex-shrink: 0;
+	flex-grow: 0;
+}
+
+footer > * {
+	font-size: 9px;
+	color:#fff;
+}
+
+@media screen and (max-width: 390px) {
+	.nav_ico {
+		display: block;
+	}
+	.nav_fulltext {
+		display: none;
+	}
+	.button__nav {
+		padding: 8px 9px;
+	}
+} */

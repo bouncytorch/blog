@@ -1,0 +1,13 @@
+<div class="info">by <span style="font-weight:500"><%= author %></span><br> </div>
+<script class="removed">
+	const date = new Date(<%= date %> * 1000);
+	const month = new Intl.DateTimeFormat("en-US", { month:'long' }).format(date)
+	const number = date.getDate()
+	const year = date.getFullYear()
+	date.setSeconds(0);
+	const time = date.toLocaleTimeString('en-US', { timeStyle: "short" })
+	document.getElementsByClassName('info')[0].innerHTML += `${month} ${number}, ${year}. ${time}`
+	document.getElementsByClassName('removed')[0].remove()
+</script>
+<div class="title"><%= title.toUpperCase() %></div>
+<section class="markdown-body"><%- context %></section>

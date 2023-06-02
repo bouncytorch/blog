@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<%- include('./head.ejs', { data: head, style: content }) %>
+</head>
+<body>
+	<header>
+		<%- include('header.ejs') %>
+	</header>
+	<main>
+		<%- include('pages/' + content + '.ejs', variables) %>
+	</main>
+	<footer>
+		<%- include('footer.ejs') %>
+	</footer>
+</body>
+</html>

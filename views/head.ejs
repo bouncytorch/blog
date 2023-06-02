@@ -1,0 +1,35 @@
+<title><%= data.meta.title %></title>
+<meta name="title" content="<%= data.meta.title %>">
+<meta name="description" content="<%= data.meta.description %>">
+<!-- Open Graph -->
+<meta property="og:type" content="<%= data.meta.type %>">
+<meta property="og:url" content="https://bouncytorch.xyz<%= data.meta.path %>">
+<meta property="og:title" content="<%= data.meta.title %>">
+<meta property="og:description" content="<%= data.meta.description %>">
+<meta property="og:image" content="https://bouncytorch.xyz<%= data.meta.image %>">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://bouncytorch.xyz<%= data.meta.path %>">
+<meta property="twitter:title" content="<%= data.meta.title %>">
+<meta property="twitter:description" content="<%= data.meta.description %>">
+<meta property="twitter:image" content="https://bouncytorch.xyz<%= data.meta.image %>">
+<!-- Etc -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+<meta name="revisit-after" content="10 days">
+<meta name="author" content="bouncytorch">
+<!-- Technical -->
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Links and Styles -->
+<% data.styles.forEach(stl => { %>
+	<link rel="stylesheet" href="<%= stl %>">
+<% }) %>
+<% data.scripts.forEach(src => { %>
+	<script src="<%= src %>" crossorigin="anonymous"></script>
+<% }) %>
+<link rel="icon" type="image/x-icon" href="<%= data.assets %>/favicon.ico">
+<link rel="stylesheet" href="<%= data.assets %>/styles/master.css">
+<link rel="stylesheet" href="<%= data.assets %>/styles/<%= style %>.css">

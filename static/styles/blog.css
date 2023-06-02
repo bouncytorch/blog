@@ -1,0 +1,187 @@
+@import url('../fonts/tonnelier/stylesheet.css');
+
+main {
+	font-family: Tonnelier;
+	background-color: #fff;
+	padding: 15px 35px;
+	color: #000000;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.nav {
+	justify-content: space-between;
+	display: flex;
+	align-items: center;
+}
+
+.page-sorter {
+	position: relative;
+}
+
+.page-title {
+	font-size: 2.3em;
+	font-weight: 900;
+	line-height: 1em;
+}
+
+.posts {
+	align-self: center;
+	max-width: 625px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.post {
+	border: solid 1px #d7d7d7;
+	border-radius: 5px;
+	padding: 10px 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 327px;
+	color: #000000;
+	transition: all 0.2s ease;
+	text-decoration: none;
+}
+
+.post:hover {
+	cursor: pointer;
+	-webkit-box-shadow: 0px 20px 19px -20px rgb(0 0 0 / 25%);
+	-moz-box-shadow: 0px 20px 19px -20px rgb(0 0 0 / 25%);
+	box-shadow: 0px 20px 19px -20px rgb(0 0 0 / 25%);
+}
+
+.post[onclick=""] {
+	user-select: none;
+	background-color: rgb(208, 208, 208);
+	pointer-events: none;
+}
+
+.post[onclick=""] .post-tag {
+	background-color: rgb(64, 64, 64);
+}
+
+.post-desc {
+	font-family: 'Tonnelier';
+	font-style: normal;
+	line-height: 1.2em;
+	font-weight: 400;
+	font-size: 1em;
+	color: #545454;
+}
+
+.post-down {
+	justify-content: space-between;
+	display: flex;
+	align-items: flex-end;
+}
+
+.post-down>* {
+	color: rgba(0, 0, 0, 0.5);
+	font-family: 'Tonnelier';
+	font-style: normal;
+	line-height: 0.8em;
+	font-weight: 400;
+	font-size: 0.8em;
+}
+
+.post-title {
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
+	font-style: normal;
+	font-size: 2.0em;
+	font-weight: 900;
+	line-height: 1em;
+	font-weight: 900;
+	overflow: hidden;
+	line-clamp: 2;
+	width: 100%;
+	padding-bottom: 0.14em;
+	padding-top: 0.14em;
+}
+
+.tags {
+	gap: 3px;
+	display: flex;
+	flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.post-tag {
+	transition: all 0.2s ease;
+	background: #b7b7b7;
+	height: fit-content;
+	padding: 4px 12px;
+	color: #FFFFFF;
+	border-radius: 50px;
+	border: none;
+	font-size: 12.8px;
+}
+
+.sort-button {
+	background-color: #fff;
+	border-color: #f2f1f4;
+	font-family: 'Open Sans';
+	border-style: solid;
+	border-radius: 8px;
+	padding: 0px 10px;
+	border-width: 1px;
+	min-height: 30px;
+	font-size: 0.7em;
+	text-align: left;
+	cursor: pointer;
+	color: #979191;
+	width: 168px;
+	z-index: 2;
+}
+
+.sort-options {
+	transition: visibility 0s, top 0.2s ease-in-out, opacity 0.2s ease;
+	box-shadow: 0px 6px 12px -5px rgb(0, 0, 0, 0.2);
+	background-color: #ffffff;
+	flex-direction: column;
+	border-color: #f2f1f4;
+	border-style: solid;
+	visibility: hidden;
+	position: absolute;
+	border-width: 1px;
+	overflow: hidden;
+	padding: 2px 5px;
+	border-radius: 8px;
+	display: flex;
+	opacity: 0;
+	top: 30px;
+	gap: 3px;
+}
+
+.sort-options>* {
+	transition: background-color 0.1s ease;
+	font-family: 'Open Sans';
+	border-radius: 5px;
+	background: none;
+	font-size: 0.7em;
+	text-align: left;
+	min-height: 30px;
+	padding: 5px 7px;
+	cursor: pointer;
+	color: #000000;
+	border: none;
+	width: 156px;
+}
+
+.sort-options>*:hover {
+	background-color: #ececec;
+	font-weight: 600;
+}
+
+@media screen and (max-width:660px) {
+	.posts {
+		gap: 3.030303030303030303030303030303vw;
+	}
+}
