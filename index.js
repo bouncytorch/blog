@@ -33,7 +33,6 @@ templater:                          # By default, this site is bundled with EJS.
   file: './views/template.ejs'       # Path to the template file.
   pages: './views/pages'            # Path to served pages.
 blog:                               # This site also comes with a blog system.
-  enabled: true                     # WARNING: The blog won't work without the templater enabled.
   url: '/blog'                      # Url path to your blog's main page server to the user.
   seo: './static/images/seo/blog'   # Path to folder, in which to generate meta images for the blog. (SEO)
   pages: './views/pages/blog_pages' # Path to folder with all the blog pages in .md format.
