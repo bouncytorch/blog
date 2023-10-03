@@ -4,14 +4,58 @@
 	<%- include('./head.ejs', { data: head, style: content }) %>
 </head>
 <body>
-	<header>
-		<%- include('header.ejs') %>
-	</header>
-	<main>
-		<%- include('pages/' + content + '.ejs', variables) %>
-	</main>
-	<footer>
-		<%- include('footer.ejs') %>
-	</footer>
+	<%- include('pages/' + content + '.ejs', variables) %>
+	<script>
+		function watchForHover() {
+			// lastTouchTime is used for ignoring emulated mousemove events
+			let lastTouchTime = 0
+
+			function enableHover() {
+				if (new Date() - lastTouchTime < 500) return
+				document.body.classList.add('hasHover')
+			}
+
+			function disableHover() {
+				document.body.classList.remove('hasHover')
+			}
+
+			function updateLastTouchTime() {
+				lastTouchTime = new Date()
+			}
+
+			document.addEventListener('touchstart', updateLastTouchTime, true)
+			document.addEventListener('touchstart', disableHover, true)
+			document.addEventListener('mousemove', enableHover, true)
+
+			enableHover()
+		}
+
+		watchForHover()
+
+		let theme = localStorage.getItem('theme'), themeButton = document.getElementsByClassName('btheme')[0];
+		if (theme) {
+			document.documentElement.className = localStorage.getItem('theme');
+			if (theme == 'dark') themeButton.children[0].classList.replace('fa-moon', 'fa-sun');
+			else themeButton.children[0].classList.replace('fa-sun', 'fa-moon');
+		}
+		else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			console.log('e')
+			document.documentElement.className = 'dark';
+			themeButton.children[0].classList.replace('fa-moon', 'fa-sun');
+		}
+		else document.documentElement.className = 'light';
+
+		function toggleTheme(btn) {
+			document.documentElement.className = document.documentElement.className == 'dark' ? 'light' : 'dark';
+			if (document.documentElement.classList.contains('dark')) {
+				localStorage.setItem('theme', 'dark')
+				btn.children[0].classList.replace('fa-moon', 'fa-sun');
+			}
+			else {
+				localStorage.setItem('theme', 'light')
+				btn.children[0].classList.replace('fa-sun', 'fa-moon');
+			}
+		}
+	</script>
 </body>
 </html>

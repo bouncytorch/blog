@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+<main>
+	<h1>mail</h1>
+	<form action="/api/mail" method="post" class="email">
+		<label for="email">e-mail</label>
+		<input oninput="onInput()" type="email" name="email" id="email" placeholder="youremail@goeshere.lol" required>
+		<label for="sbj">subject</label>
+		<input oninput="onInput()" type="text" name="sbj" id="sbj" placeholder="Something really important..." required>
+		<label for="msg">message</label>
+		<textarea oninput="onInput()" name="message" id="msg" style="resize:vertical;" rows="10" placeholder="Hello, this is my very long message..." required></textarea>
+		<button type="submit" class="bdefault disabled">send</button>
+	</form>
+</main>
+<script>
+	for (let wow of document.getElementsByTagName('textarea')) {
+		wow.addEventListener('keydown', function(e) {
+  		if (e.key == 'Tab') {
+			e.preventDefault();
+			var start = this.selectionStart;
+			var end = this.selectionEnd;
+
+			// set textarea value to: text before caret + tab + text after caret
+			this.value = this.value.substring(0, start) +
+			  "\t" + this.value.substring(end);
+
+			// put caret at right position again
+			this.selectionStart =
+			  this.selectionEnd = start + 1;
+  		}});
+	}
+	const email = document.getElementById('email'),
+		sbj = document.getElementById('sbj'),
+		msg = document.getElementById('msg'),
+		btn = document.getElementsByClassName('email')[0].getElementsByTagName('button')[0];
+
+	const onInput = () => {
+		if (email.value && sbj.value && msg.value) {
+			btn.classList.remove('disabled')
+		} else btn.classList.add('disabled')
+	}
+</script>
+<%- include('partials/footer') %>

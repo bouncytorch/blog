@@ -1,91 +1,18 @@
-<section class="nav">
-	<div class="page-title">BLOG</div>
-	<div class="page-sorter">
-		<button class="sort-button" aria-label="Sort blog posts">Sort by: <b>Date</b> (Ascending)</button>
-		<div class="sort-options">
-			<button data-sort="title" onclick="sortSend('title')">Title</button>
-			<button data-sort="date" onclick="sortSend('date')">Date</button>
-		</div>
+<%- include('partials/header') %>
+<main>
+	<h1>blog</h1>
+	<div class="posts">
+		<a href="/blog/0">
+			<div><h4>blog-heading-1 blog-heading-1 blog-heading-1 blog-heading-1 blog-heading-1 blog-heading-1 blog-heading-1 blog-heading-1</h4>
+			<p>a very long long project description. it's pretty long and spans across 2 entire lines. kinda crazya very long long project description. it's pretty long and spans across 2 entire lines. kinda crazya very long long project description. it's pretty long and spans across 2 entire lines. kinda crazy</p></div>
+			<div><span>12:00<br>01/01/2023</span><span>by <b>bouncytorch</b></span></div>
+		</a>
+		<a href="/blog/0" class="img" style="background-image: url('https://placehold.co/907x479');">
+			<img src="https://placehold.co/1290x500" alt="">
+			<div><h4>blog-heading-1 blog-heading-1 blog-heading-1 blog-heading-1 blog-heading-1 blog-heading-1 blog-heading-1 blog-heading-1</h4>
+			<p>a very long long project description. it's pretty long and spans across 2 entire lines. kinda crazya very long long project description. it's pretty long and spans across 2 entire lines. kinda crazya very long long project description. it's pretty long and spans across 2 entire lines. kinda crazy</p></div>
+			<div><span>12:00<br>01/01/2023</span><span>by <b>bouncytorch</b></span></div>
+		</a>
 	</div>
-</section>
-<section class="posts">
-	
-</section>
-<script>
-	let start = 0, count = 5, sort = 'date', dir = 0;
-	const sort_button = document.querySelector('.sort-button');
-	const sort_options = document.querySelector('.sort-options');
-	const posts_container = document.querySelector('.posts');
-	const sortButtonStyle = () => {
-		sort_button.style.boxShadow = sort_button.style.boxShadow == '' ? '0px 0px 0px 2px rgba(0,0,0,0.1)' : '';
-		sort_button.style.borderColor = sort_button.style.borderColor == '' ? '#1f35f6' : '';
-		sort_options.style.top = sort_options.style.top == '' ? "40px" : ''
-		sort_options.style.opacity = sort_options.style.opacity == '' ? "1" : '';
-		sort_options.style.visibility = sort_options.style.visibility == '' ? "visible" : '';
-		sort_button.innerHTML = sort_button.innerHTML == 'Sort by...' ? `Sort by: <b>${document.querySelector(`[data-sort="${sort}"]`).innerHTML}</b> (${dir ? 'Descending' : 'Ascending' })` : 'Sort by...'
-	}
-	const getFeed = () => {
-		if (start == 0) {
-			posts_container.querySelectorAll('[onclick]').forEach(a => a.setAttribute('onclick', ''))
-		};
-		fetch(`/api/blog?s=${start}&l=${count}&r=${sort}&d=${dir}`).then(a => a.json()).then(a => {
-			a.forEach(post => {
-				let tags = [];
-				if (start == 0) posts_container.innerHTML = '';
-				start += count;
-				if (post.tags) post.tags.forEach(tag => {
-					tags.push(`<button class="post-tag" onclick="searchByTag('${tag}')">#${tag}</button>`)
-				})
-				const date = new Date(post.date * 1000);
-				const month = new Intl.DateTimeFormat('en-US', { month:'long' }).format(date);
-				const number = date.getDate();
-				const year = date.getFullYear();
-				date.setSeconds(0);
-				const time = date.toLocaleTimeString('en-US', { timeStyle: 'short' });
-				posts_container.innerHTML += `<div class="post" style="opacity:0;" onclick="window.location.href = '/blog/${post.id}'" data-id="${post.id}">
-						<div class="post-main">
-							<div class="post-title">${post.title.toUpperCase()}</div>
-							<div class="post-desc">${post.description}</div>
-						</div>
-						<div class="post-down" onclick="event.stopPropagation();">
-							<div style="flex-shrink: 0;flex-grow: 0;">${month} ${number}, ${year}. ${time}<br>by <span style="color:#000">${post.author}</span>.</div>
-								<div class="tags">
-									${tags.join(' ')}
-								</div>
-						</div>
-					</button>`
-			});
-			for (const node of posts_container.childNodes) {
-				if (node.nodeName.toLowerCase() == 'div') {
-					node.style.opacity = null;
-				}
-			}
-		})
-	}
-	getFeed()
-	function searchByTag(tag) {
-		// ...
-	};
-	const sortSend = (name) => {
-		start = 0;
-		if (name == sort) {
-			dir = dir ? 0 : 1
-		}
-		sort = name
-		sortButtonStyle()
-		getFeed()
-	}
-	window.onscroll = function(ev) {
-    	if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight) {
-			getFeed()
-    	}
-	};
-	window.addEventListener('click', function(e){   
-		if (sort_options.style.visibility == 'visible' && !sort_options.contains(e.target) && !sort_button.contains(e.target)){
-			sortButtonStyle()
-		}
-		else if (sort_button.contains(e.target)) {
-			sortButtonStyle()
-		}
-	});
-</script>
+</main>
+<%- include('partials/footer') %>
